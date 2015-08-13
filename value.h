@@ -1,5 +1,5 @@
 //
-//  value.h
+//  Value.h
 //  lightjson
 //
 //  Created by 정인중 on 2015. 8. 13..
@@ -15,27 +15,23 @@ namespace lightjson {
     public:
     };
     
-    class NullValue {
+    class NullValue : public Value {
         
     };
     
-    class IntValue {
+    class IntValue : public Value {
         
     };
     
-    class StringValue {
+    class StringValue : public Value {
         
     };
     
-    class BoolValue {
+    class BoolValue : public Value {
         
     };
     
-    class ArrayValue {
-        
-    };
-    
-    class ObjectValue {
+    class ArrayValue : public Value {
         
     };
 }
