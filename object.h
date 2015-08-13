@@ -9,13 +9,21 @@
 #ifndef __lightjson__object__
 #define __lightjson__object__
 
-#include "node.h"
-namespace lightjson {
+#include <map>
+#include <string>
+#include "value.h"
+using namespace std;
+
+namespace Json {
     class ObjectValue : public Value {
     private:
-        Node* head;
+        int count;
+        map<string, Value> table;
     public:
         ObjectValue();
+        
+        Value& operator=(const Value& other);
+        Value& operator[](const string&);
     };
 }
 
