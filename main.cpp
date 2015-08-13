@@ -7,9 +7,14 @@
 //
 
 #include <iostream>
+#include "object.h"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    Json::ObjectValue obj;
+    obj["1"] = 1;
+    
+    std::cout << obj["1"].f();
     return 0;
 }
