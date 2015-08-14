@@ -7,9 +7,7 @@
 //
 
 #include <iostream>
-#include "json.h"
-#include "reader.h"
-#include "writer.h"
+#include "lightjson.h"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
