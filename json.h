@@ -55,7 +55,6 @@ namespace Json {
     
     class Array {
     private:
-        int count;
         vector<Value> table;
     public:
         Array();
@@ -100,6 +99,7 @@ namespace Json {
         int toInt() const;
         bool toBool() const;
         string toString() const;
+        
         Type type();
     };
 }

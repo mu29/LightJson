@@ -162,7 +162,25 @@ Value Reader::parseString() {
 }
 
 Value Reader::parseArray() {
-    return Value();
+    Array ary;
+    bool complete = false;
+    while (!complete) {
+        Token token = nextToken();
+        if (token == TOKEN_SQUARED_CLOSE) {
+            complete = true;
+            break;
+        } else if (token == TOKEN_NONE) {
+            
+        } else if (token == TOKEN_COMMA) {
+            
+        } else {
+            index--;
+            Value v = parse();
+            ary.add(v);
+        }
+    }
+    
+    return ary;
 }
 
 Value Reader::parseObject() {
@@ -189,5 +207,6 @@ Value Reader::parseObject() {
             obj[key] = val;
         }
     }
+    
     return obj;
 }

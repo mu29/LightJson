@@ -13,13 +13,16 @@
 int main(int argc, const char * argv[]) {
     // insert code here...
     
-    string json = "{\"key\":\"asdf\", \"aa\":-123}";
+    string json = "{\"key\":\"asdf\", \"aa\":[-123,23,33]}";
     Json::Reader rdr;
     Json::Object obj = rdr.decode(json);
     
-    string k = obj["key"].toString();
-    int i = obj["aa"].toInt();
+    //string k = obj["key"].toString();
+    Json::Array ary = obj["aa"];
     
-    std::cout << k << std::endl << i;
+    for (int i = 0; i < ary.size(); i++) {
+        std::cout << ary[i].toInt() << std::endl;
+    }
+    
     return 0;
 }

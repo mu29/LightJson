@@ -45,11 +45,10 @@ Array& Array::operator=(const Array& other) {
 
 void Array::add(const Value& value) {
     table.push_back(value);
-    count++;
 }
 
 int Array::size() {
-    return count;
+    return (int)table.size();
 }
 
 Value::Value() {
