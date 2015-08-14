@@ -53,65 +53,65 @@ int Array::size() {
 }
 
 Value::Value() {
-    valueType = Type::NIL;
+    valueType = NIL;
 }
 
 Value::Value(bool value) {
     bData = value;
-    valueType = Type::BOOL;
+    valueType = BOOL;
 }
 
 Value::Value(int value) {
     iData = value;
-    valueType = Type::INT;
+    valueType = INT;
 }
 
 Value::Value(double value) {
     dData = value;
-    valueType = Type::DOUBLE;
+    valueType = DOUBLE;
 }
 
 Value::Value(const char* value) {
     sData = value;
-    valueType = Type::STRING;
+    valueType = STRING;
 }
 
 Value::Value(string& value) {
     sData = value;
-    valueType = Type::STRING;
+    valueType = STRING;
 }
 
 Value::Value(Array& value) {
     aData = value;
-    valueType = Type::ARRAY;
+    valueType = ARRAY;
 }
 
 Value::Value(Object& value) {
     oData = value;
-    valueType = Type::OBJECT;
+    valueType = OBJECT;
 }
 
 Value::Value(const Value& other) {
     switch (other.valueType) {
-        case Type::BOOL:
+        case BOOL:
             bData = other.bData;
             break;
-        case Type::INT:
+        case INT:
             iData = other.iData;
             break;
-        case Type::DOUBLE:
+        case DOUBLE:
             dData = other.dData;
             break;
-        case Type::STRING:
+        case STRING:
             sData = other.sData;
             break;
-        case Type::ARRAY:
+        case ARRAY:
             aData = other.aData;
             break;
-        case Type::OBJECT:
+        case OBJECT:
             oData = other.oData;
             break;
-        case Type::NIL:
+        case NIL:
             break;
     }
     valueType = other.valueType;
@@ -143,25 +143,25 @@ Value::operator Object() const {
 
 Value& Value::operator=(const Value& other) {
     switch (other.valueType) {
-        case Type::BOOL:
+        case BOOL:
             bData = other.bData;
             break;
-        case Type::INT:
+        case INT:
             iData = other.iData;
             break;
-        case Type::DOUBLE:
+        case DOUBLE:
             dData = other.dData;
             break;
-        case Type::STRING:
+        case STRING:
             sData = other.sData;
             break;
-        case Type::ARRAY:
+        case ARRAY:
             aData = other.aData;
             break;
-        case Type::OBJECT:
+        case OBJECT:
             oData = other.oData;
             break;
-        case Type::NIL:
+        case NIL:
             break;
     }
     valueType = other.valueType;
@@ -182,4 +182,8 @@ bool Value::toBool() const {
 
 string Value::toString() const {
     return sData;
+}
+
+Type Value::type() {
+    return valueType;
 }
