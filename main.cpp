@@ -9,6 +9,7 @@
 #include <iostream>
 #include "json.h"
 #include "reader.h"
+#include "writer.h"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -19,5 +20,8 @@ int main(int argc, const char * argv[]) {
     
     Json::Value obj2 = obj["key"];
     
+    Json::Writer wr;
+    string a = wr.encode(obj);
+    string b = wr.encode(obj2);
     return 0;
 }
