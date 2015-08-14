@@ -8,20 +8,18 @@
 
 #include <iostream>
 #include "json.h"
+#include "reader.h"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     
-    Json::Object obj;
+    string json = "{\"key\":\"asdf\", \"aa\":-123}";
+    Json::Reader rdr;
+    Json::Object obj = rdr.decode(json);
     
-    Json::Array ary;
-    ary.add(1);
-    ary.add(3);
-    ary.add(2);
+    string k = obj["key"].toString();
+    int i = obj["aa"].toInt();
     
-    for (int i = 0; i < ary.size(); i++) {
-        std::cout << ary[i].toInt();
-    }
-    
+    std::cout << k << std::endl << i;
     return 0;
 }
