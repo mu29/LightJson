@@ -30,6 +30,10 @@ Object& Object::operator=(const Object& other) {
     return *this;
 }
 
+map<string, Value>& Object::getTable() {
+    return table;
+}
+
 Array::Array() {
     
 }

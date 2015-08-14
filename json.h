@@ -52,6 +52,7 @@ namespace Json {
         Value& operator[](const string&);
         const Value& operator[] (const string&) const;
         Object& operator=(const Object&);
+        map<string, Value>& getTable();
     };
     
     class Array {
