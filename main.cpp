@@ -7,7 +7,7 @@
 //
 
 #include <iostream>
-#include "object.h"
+#include "json.h"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -15,6 +15,5 @@ int main(int argc, const char * argv[]) {
     Json::ObjectValue obj;
     obj["1"] = 1;
     
-    std::cout << obj["1"].f();
     return 0;
 }

@@ -7,3 +7,21 @@
 //
 
 #include "json.h"
+using namespace Json;
+
+Object::Object() {
+    
+}
+
+Object::Object(const Object& other) {
+    table = other.table;
+}
+
+Value& Object::operator[](const string& key) {
+    return table[key];
+}
+
+Object& Object::operator=(const Object& other) {
+    table = other.table;
+    return *this;
+}
