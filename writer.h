@@ -12,20 +12,18 @@
 #include "json.h"
 
 namespace Json {
-    class Reader {
+    class Writer {
     private:
-        Object json;
-        
         string encodeObject(Object);
         string encodeArray(Array);
         string encodeInteger(int);
         string encodeString(string);
         string encodeBool(bool);
     public:
-        Reader();
-        Reader(Object);
+        Writer();
+        Writer(Value);
         
-        string encode();
+        string encode(Value);
     };
 }
 
