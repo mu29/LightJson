@@ -50,6 +50,7 @@ namespace Json {
         Object(const Object&);
         
         Value& operator[](const string&);
+        const Value& operator[] (const string&) const;
         Object& operator=(const Object&);
     };
     
@@ -61,6 +62,7 @@ namespace Json {
         Array(const Array&);
         
         Value& operator[](const int&);
+        const Value& operator[] (const int&) const;
         Array& operator=(const Array&);
         void add(const Value&);
         int size();
@@ -94,6 +96,12 @@ namespace Json {
         operator Array() const;
         operator Object() const;
         Value& operator=(const Value&);
+        Value& operator[](const char*);
+        const Value& operator[] (const char*) const;
+        Value& operator[](const string&);
+        const Value& operator[] (const string&) const;
+        Value& operator[](const int&);
+        const Value& operator[] (const int&) const;
         
         double toReal() const;
         int toInt() const;

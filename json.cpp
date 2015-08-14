@@ -21,6 +21,10 @@ Value& Object::operator[](const string& key) {
     return table[key];
 }
 
+const Value& Object::operator[] (const string& key) const {
+    return table.at(key);
+}
+
 Object& Object::operator=(const Object& other) {
     table = other.table;
     return *this;
@@ -35,6 +39,10 @@ Array::Array(const Array& other) {
 }
 
 Value& Array::operator[](const int& key) {
+    return table.at(key);
+}
+
+const Value& Array::operator[] (const int& key) const {
     return table.at(key);
 }
 
@@ -166,6 +174,48 @@ Value& Value::operator=(const Value& other) {
     valueType = other.valueType;
     
     return *this;
+}
+
+Value& Value::operator[](const char* key) {
+    if (valueType != OBJECT)
+        throw "JSON type error";
+    
+    return oData[key];
+}
+
+const Value& Value::operator[] (const char* key) const {
+    if (valueType != OBJECT)
+        throw "JSON type error";
+    
+    return oData[key];
+}
+
+Value& Value::operator[](const string& key) {
+    if (valueType != OBJECT)
+        throw "JSON type error";
+    
+    return oData[key];
+}
+
+const Value& Value::operator[] (const string& key) const {
+    if (valueType != OBJECT)
+        throw "JSON type error";
+    
+    return oData[key];
+}
+
+Value& Value::operator[](const int& key) {
+    if (valueType != ARRAY)
+        throw "JSON type error";
+    
+    return aData[key];
+}
+
+const Value& Value::operator[] (const int& key) const {
+    if (valueType != ARRAY)
+        throw "JSON type error";
+    
+    return aData[key];
 }
 
 double Value::toReal() const {

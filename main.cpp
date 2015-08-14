@@ -15,14 +15,9 @@ int main(int argc, const char * argv[]) {
     
     string json = "{\"key\":\"asdf\", \"aa\":[-123,23,33]}";
     Json::Reader rdr;
-    Json::Object obj = rdr.decode(json);
+    Json::Value obj = rdr.decode(json);
     
-    //string k = obj["key"].toString();
-    Json::Array ary = obj["aa"];
-    
-    for (int i = 0; i < ary.size(); i++) {
-        std::cout << ary[i].toInt() << std::endl;
-    }
+    Json::Value obj2 = obj["key"];
     
     return 0;
 }
