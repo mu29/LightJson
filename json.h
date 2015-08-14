@@ -17,6 +17,16 @@ using namespace std;
 namespace Json {
     class Value;
     
+    enum Type {
+        BOOL,
+        INT,
+        DOUBLE,
+        STRING,
+        ARRAY,
+        OBJECT,
+        NIL
+    };
+    
     class Object {
     private:
         map<string, Value> table;
@@ -35,11 +45,38 @@ namespace Json {
     
     class Value {
     private:
+        bool bData;
         int iData;
         double dData;
         string sData;
         Array aData;
         Object oData;
+        
+        Type valueType;
+    public:
+        Value();
+        Value(bool);
+        Value(int);
+        Value(double);
+        Value(const char*);
+        Value(string&);
+        Value(string&&);
+        Value(Array&);
+        Value(Object&);
+        Value(const Value&);
+        
+        operator bool() const;
+        operator int() const;
+        operator double() const;
+        operator string () const;
+        operator Array () const;
+        operator Object () const;
+        Value& operator=(const Value&);
+        
+        double toReal() const;
+        int toInt() const;
+        bool toBool() const;
+        string toString() const;
     };
 }
 

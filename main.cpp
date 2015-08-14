@@ -12,8 +12,10 @@
 int main(int argc, const char * argv[]) {
     // insert code here...
     
-    Json::ObjectValue obj;
+    Json::Object obj;
     obj["1"] = 1;
+    obj["key"] = "88da031802";
+    obj["rvalue"] = 1.1;
     
     return 0;
 }
