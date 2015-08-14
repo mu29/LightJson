@@ -17,6 +17,21 @@ using namespace std;
 namespace Json {
     class Value;
     
+    enum Token {
+        TOKEN_NONE,
+        TOKEN_CURLY_OPEN,
+        TOKEN_CURLY_CLOSE,
+        TOKEN_SQUARED_OPEN,
+        TOKEN_SQUARED_CLOSE,
+        TOKEN_COLON,
+        TOKEN_COMMA,
+        TOKEN_STRING,
+        TOKEN_NUMBER,
+        TOKEN_TRUE,
+        TOKEN_FALSE,
+        TOKEN_NULL
+    };
+    
     enum Type {
         BOOL,
         INT,
@@ -76,15 +91,16 @@ namespace Json {
         operator bool() const;
         operator int() const;
         operator double() const;
-        operator string () const;
-        operator Array () const;
-        operator Object () const;
+        operator string() const;
+        operator Array() const;
+        operator Object() const;
         Value& operator=(const Value&);
         
         double toReal() const;
         int toInt() const;
         bool toBool() const;
         string toString() const;
+        Type type();
     };
 }
 
