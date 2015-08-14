@@ -26,6 +26,32 @@ Object& Object::operator=(const Object& other) {
     return *this;
 }
 
+Array::Array() {
+    
+}
+
+Array::Array(const Array& other) {
+    table = other.table;
+}
+
+Value& Array::operator[](const int& key) {
+    return table.at(key);
+}
+
+Array& Array::operator=(const Array& other) {
+    table = other.table;
+    return *this;
+}
+
+void Array::add(const Value& value) {
+    table.push_back(value);
+    count++;
+}
+
+int Array::size() {
+    return count;
+}
+
 Value::Value() {
     valueType = Type::NIL;
 }
@@ -51,11 +77,6 @@ Value::Value(const char* value) {
 }
 
 Value::Value(string& value) {
-    sData = value;
-    valueType = Type::STRING;
-}
-
-Value::Value(string&& value) {
     sData = value;
     valueType = Type::STRING;
 }

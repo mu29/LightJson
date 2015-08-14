@@ -40,7 +40,16 @@ namespace Json {
     
     class Array {
     private:
+        int count;
         vector<Value> table;
+    public:
+        Array();
+        Array(const Array&);
+        
+        Value& operator[](const int&);
+        Array& operator=(const Array&);
+        void add(const Value&);
+        int size();
     };
     
     class Value {
@@ -60,7 +69,6 @@ namespace Json {
         Value(double);
         Value(const char*);
         Value(string&);
-        Value(string&&);
         Value(Array&);
         Value(Object&);
         Value(const Value&);

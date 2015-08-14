@@ -13,9 +13,15 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     
     Json::Object obj;
-    obj["1"] = 1;
-    obj["key"] = "88da031802";
-    obj["rvalue"] = 1.1;
+    
+    Json::Array ary;
+    ary.add(1);
+    ary.add(3);
+    ary.add(2);
+    
+    for (int i = 0; i < ary.size(); i++) {
+        std::cout << ary[i].toInt();
+    }
     
     return 0;
 }
