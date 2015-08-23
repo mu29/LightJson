@@ -69,14 +69,19 @@ namespace Json {
         int size();
     };
     
+    union JsonValue {
+        bool boolValue;
+        int intValue;
+        double doubleValue;
+        string stringValue;
+        Array arrayValue;
+        Object objectValue;
+        int nullValue;
+    };
+    
     class Value {
     private:
-        bool bData;
-        int iData;
-        double dData;
-        string sData;
-        Array aData;
-        Object oData;
+        JsonValue data;
         
         Type valueType;
     public:
